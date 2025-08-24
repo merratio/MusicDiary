@@ -6,10 +6,10 @@ body{
 }
 
 .form{
-  background-color: white;
+  background-color: whitesmoke;
   border-radius: 8px;
   padding: 30px;
-  
+  gap: 30px;
 }
 .grid{
   display: grid;
@@ -36,16 +36,25 @@ hr{
 
 .input{
   padding: 8px; 
-  color: #333;
   font-weight: 600; 
+  color: #4a5568;
 }
 
-.input input, select{
-  margin: 8px;
-  height: 30px;
-  width: 500px;
-  border-radius: 5px;
+input, select, textarea{
+  padding: 12px;
+  margin: 12px;
+  width: 90%;
+  border-radius:8px;
   border: 2px solid #e2e8f0
+}
+
+textarea{
+  height: auto;
+}
+
+label{
+  font-weight: 600;
+  color: #4a5568;
 }
 
 .submitBtn{
@@ -58,4 +67,19 @@ hr{
   color: white;
   font-weight: 600;
   font-size: 15px;
+}
+
+.star{
+  color: #e2e8f0;
+  cursor: pointer;
+  font-size: 25px;
+
+}
+
+.star:hover, .star:checked{
+  color: gold;
+}
+
+.stars{
+  margin: 10px;
 }
