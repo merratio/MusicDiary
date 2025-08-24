@@ -37,13 +37,18 @@ const Form = () =>{
             <hr />
             <form>
                 
+                <div className="grid">
+                    <Info label = "Artist" type="text"/>
+                    <Info label = "Artist" type="text"/>
+                    <Select label="Genre" options={genre}/>
+                    <Select label="Genre" options={genre}/>
 
-                <Info label = "Artist" type="text"/>
-                <Info label = "Artist" type="text"/>
-                <Select label="Genre" options={genre}/>
-                <Select label="Genre" options={genre}/>
+                </div>
+                
                 <Info label = "Artist"/>
-                <Info label = "Artist"/>
+
+                <label>Info</label>
+                <textarea placeholder="Text"></textarea>
 
                 <button type="submit" className="submitBtn">Add Song</button>
 
