@@ -17,5 +17,9 @@ public class SongService {
 		return repo.findAll();
 		
 	}
+	
+	public void save(Song song) {
+		repo.save(song);
+	}
 
 }

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import service from "../service/service"
 
 const Info = (props) =>{
     return(
@@ -22,7 +23,7 @@ const Select = (props) =>{
         <div className="input">
             <div>{props.label}</div>
             
-            <select placeholder={props.placeholder}>
+            <select value={props.val} onChange={(e) => props.handleChange(e.target.value)} placeholder={props.placeholder}>
                 {
                     props.options.map(op => (
                         <option key={op}>{op}</option>
@@ -63,9 +64,20 @@ const Form = () =>{
 
     const handleSubmit = (e) =>{
         e.preventDefault()
+        
 
+        const song = {
+            title:name,
+            artist:artist,
+            genre:gen,
+            discovery:dis, 
+            rating:rating
+        }
+
+        
+        console.log(service.create(song))
         console.log(name)
-        console.log(rating)
+        console.log(gen)
 
     }
 
@@ -85,7 +97,7 @@ const Form = () =>{
                 <div className="grid">
                     <Info label = "Song Title" type="text" val={name} handleChange={setName} placeholder="Enter song title"/>
                     <Info label = "Artist" type="text" val={artist} handleChange={setArtist} placeholder="Enter artist name"/>
-                    <Select label="Genre" options={genre} placeholder=""/>
+                    <Select val={gen} handleChange={setGenre} label="Genre" options={genre} placeholder=""/>
                     <Select label="How did you find this?" options={discovery} placeholder=""/>
 
                 </div>
