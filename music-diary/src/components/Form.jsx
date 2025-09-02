@@ -41,7 +41,6 @@ const Stars = (props) =>{
         <div className="stars">
             <div><label>Rating</label></div>
 
-            
             <span onClick={() => props.handleClick(1)} className="star">★</span>
             <span onClick={() => props.handleClick(2)} data-value={2} className="star">★</span>
             <span onClick={() => props.handleClick(3)} data-value={3} className="star">★</span>
@@ -52,15 +51,16 @@ const Stars = (props) =>{
     )
 }
 
-const Form = () =>{
-    const genre = ["Dancehall", "Reggae", "Afrobeats", "Hip Hop", "R&B", "Pop", "Other"]
-    const discovery = ["Youtube Recommendation", "Searched for it", "Found in playlist", "Friend Shared"]
+const Form = (props) =>{
+    const genre = ["Genre","Dancehall", "Reggae", "Afrobeats", "Hip Hop", "R&B", "Pop", "Other"]
+    const discovery = ["Discovery","Youtube Recommendation", "Searched for it", "Found in playlist", "Friend Shared"]
 
     const [name, setName] = useState("")
     const [artist, setArtist] = useState("")
     const [gen, setGenre] = useState("")
     const [dis, setDiscovery] = useState("")
-    const [rating, setRating] = useState(0)
+    const [rating, setRating] = useState(3)
+    const [notes, setNotes] = useState("")
 
     const handleSubmit = (e) =>{
         e.preventDefault()
@@ -70,14 +70,25 @@ const Form = () =>{
             title:name,
             artist:artist,
             genre:gen,
-            discovery:dis, 
-            rating:rating
+            discoveryMethod:dis, 
+            rating:rating,
+            notes:notes
         }
 
         
-        console.log(service.create(song))
-        console.log(name)
-        console.log(gen)
+        service.create(song)
+        .then(song =>{
+            props.handleSong(props.songs.concat(song))
+            
+        })
+
+        
+        setName("")
+        setArtist("")
+        setGenre("")
+        setDiscovery("")
+        setRating(3)
+        setNotes("")
 
     }
 
@@ -97,8 +108,8 @@ const Form = () =>{
                 <div className="grid">
                     <Info label = "Song Title" type="text" val={name} handleChange={setName} placeholder="Enter song title"/>
                     <Info label = "Artist" type="text" val={artist} handleChange={setArtist} placeholder="Enter artist name"/>
-                    <Select val={gen} handleChange={setGenre} label="Genre" options={genre} placeholder=""/>
-                    <Select label="How did you find this?" options={discovery} placeholder=""/>
+                    <Select val={gen} handleChange={setGenre} label="Genre" options={genre}/>
+                    <Select val ={dis} handleChange={setDiscovery} label="How did you find this?" options={discovery}/>
 
                 </div>
                 
@@ -107,7 +118,7 @@ const Form = () =>{
                 <div>
                     <div><label>Notes (Optional)</label></div>
                     
-                    <textarea rows={3} placeholder="Text"></textarea>
+                    <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} placeholder="Text"></textarea>
 
                 </div>
                 

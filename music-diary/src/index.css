@@ -5,11 +5,12 @@ body{
   color: #333;
 }
 
-.form{
+.pieChart,.form, .songs, .songlist{
   background-color: whitesmoke;
   border-radius: 8px;
   padding: 30px;
   gap: 30px;
+  margin-bottom: 30px;
 }
 .grid{
   display: grid;
@@ -25,7 +26,7 @@ body{
 
 h2{
   margin: 0;
- 
+  color: #4a5568;
   
 }
 
@@ -76,10 +77,71 @@ label{
 
 }
 
+.range{
+  background-color: gold;
+}
+
 .star:hover, .star:checked{
   color: gold;
 }
 
 .stars{
   margin: 10px;
+}
+
+.header{
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.header h1{
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.header p{
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+.songs{
+  color:#667eea;
+  text-align: center;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.songs div{
+  font-weight: 800;
+  font-size: 2em;
+}
+
+.songs p{
+  color: #4a5568;
+}
+
+.songlist{
+  color: #4a5568;
+  font-weight: 700;
+}
+
+.info{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 700px) {
+  .info {
+    grid-template-columns: 1fr 1fr; /* switch to 1 column on smaller screens */
+  }
+}
+
+
+.pie{
+  width: 400px;
+  height: 400px;
+  margin-left: 400px;
 }

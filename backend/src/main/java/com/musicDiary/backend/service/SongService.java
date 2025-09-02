@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.musicDiary.backend.model.Artist;
 import com.musicDiary.backend.model.Song;
 import com.musicDiary.backend.repository.SongRepo;
 
@@ -20,6 +21,8 @@ public class SongService {
 	
 	public void save(Song song) {
 		repo.save(song);
+		
 	}
 
+	
 }
