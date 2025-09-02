@@ -1,4 +1,4 @@
-#Music Diary
+Music Diary
 
 This was just a fun project to add something to my portfoloio while I try out projects 3
 This project was something that I could see myself using so I created it 
