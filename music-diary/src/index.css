@@ -117,13 +117,14 @@ label{
   font-size: 2em;
 }
 
-.songs p{
+.name{
   color: #4a5568;
+  font-weight: 700;
 }
 
 .songlist{
   color: #4a5568;
-  font-weight: 700;
+  
 }
 
 .info{
@@ -144,4 +145,24 @@ label{
   width: 400px;
   height: 400px;
   margin-left: 400px;
+}
+
+.bar{
+  width:600px;
+  height: 600px;
+  margin-left: 400px;
+}
+
+.gen{
+  background-color: blue;
+  border-radius: 12px;
+  color: white;
+  padding: 2px;
+}
+
+.gen p{
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 4px;
 }

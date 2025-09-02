@@ -1,23 +1,21 @@
-import {ArcElement, Chart as ChartJs, Legend, Tooltip} from 'chart.js'
-import {Pie} from 'react-chartjs-2'
+import {BarElement, CategoryScale, Chart as ChartJs, LinearScale} from 'chart.js'
+import {Bar} from 'react-chartjs-2'
 
-//register Chart.js components
-ChartJs.register(ArcElement,Tooltip, Legend)
+ChartJs.register(LinearScale, CategoryScale, BarElement)
 
-const GenrePieChart = (props) =>{
-    //Calculate genre distribution
-    const genreStats = props.songs.reduce((acc, song) => {
-        acc[song.genre] = (acc[song.genre] || 0) + 1
+const RatingBarChart = (props) =>{
+    const ratingStats = props.songs.reduce((acc,song) =>{
+        acc[song.artist] = (acc[song.artist]|| 0) + 1
         return acc
+
     }, {})
 
-    //prepare data for chartjs
     const data = {
-        labels: Object.keys(genreStats),
+        labels: Object.keys(ratingStats),
         datasets:[
             {
-                label: 'Songs by Genre',
-                data: Object.values(genreStats),
+                label: 'Songs by artists',
+                data: Object.values(ratingStats),
                 backgroundColor:[
                     '#FF6384',
                     '#36A2EB',
@@ -29,10 +27,10 @@ const GenrePieChart = (props) =>{
                     '#C9CBCF'
                 ],
                 borderWidth: 2,
-            },
-        ],
 
+            }
 
+        ]
     }
 
     const options = {
@@ -43,7 +41,7 @@ const GenrePieChart = (props) =>{
             },
             title: {
                 display: true,
-                text: 'Music Genre Distribution'
+                text: 'Music rating Distribution'
             }
         }
     }
@@ -51,20 +49,17 @@ const GenrePieChart = (props) =>{
     return(
         <>
         <div className='pieChart'>
-            <h2>Genre Distribution</h2>
+            <h2>Artist Distribution</h2>
             <hr />
-            <div className='bar'>
-                <Pie data={data} options={options}/>
+            <div className='pie'>
+                <Bar data={data} options={options}/>
 
             </div>
             
-
         </div>
         
         </>
-    ) 
+    )
 }
 
-
-
-export default GenrePieChart
+export default RatingBarChart

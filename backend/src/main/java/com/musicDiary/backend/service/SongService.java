@@ -23,6 +23,11 @@ public class SongService {
 		repo.save(song);
 		
 	}
+	
+	public void delete(int id) {
+		Song song = repo.findById(id).orElseThrow();
+		repo.delete(song);
+	}
 
 	
 }

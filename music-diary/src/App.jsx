@@ -4,6 +4,7 @@ import Display from "./components/Display"
 import SongList from "./components/SongList"
 import service from "./service/service"
 import GenrePieChart from "./components/GenrePieChart"
+import RatingBarChart from "./components/RatingBarChart"
 import { useState, useEffect } from "react"
 
 const App = () =>{
@@ -20,6 +21,7 @@ const App = () =>{
     <Display songs={songs}/>
     <Form songs={songs} handleSong={setSongs}/>
     <GenrePieChart songs={songs}/>
+    <RatingBarChart songs={songs}/>
     <SongList songs={songs}/>
     </>
     
